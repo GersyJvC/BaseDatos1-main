@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "Jafet",
+    "password": "Jafet123",
+    "database": "escolar",
+    "host": "localhost",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "Jafet",
+    "password": "Jafet123test",
+    "database": "escolartest",
+    "host": "localhost",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "Jafet",
+    "password": "Jafet123production",
+    "database": "escolarproduction",
+    "host": "localhost",
+    "dialect": "mysql"
+  }
+}

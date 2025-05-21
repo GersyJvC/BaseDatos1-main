@@ -1,0 +1,48 @@
+@startuml WebApp
+class persona {
+- nombre : string
+- email : string
+}
+class estudante {
+- Matricula : integer
+- Nombre : string
+- Email : string
+- imagen : blob
+}
+class docente {
+- numEmpleado : integer
+- nombre : string
+- email : string
+}
+class asignatura {
+- clave : integer
+- nombre : string
+- creditos : integer
+}
+
+class categoriaempleado {
+- clave : integer
+- nombre : string
+}
+
+class Inscripcion {
+- estudianteId : integer
+- asignaturaId : integer
+- semestre : integer
+- calificacion : float
+}
+
+class contrato {
+- docenteId : integer
+- asignaturaId : integer
+}
+
+docente --|> persona
+estudante --|> persona
+docente "*" --> "1" categoriaempleado: tiene >
+estudante "1..*" -- [estudanteId+asignaturaId] inscripcion
+inscripcion [estudanteId+asignaturaId] -- "1..*" asignatura
+docente "1..*" -- [docenteId+asignaturaId] contrato
+contrato [docenteId+asignaturaId] -- "1..*" asignatura
+
+@enduml
