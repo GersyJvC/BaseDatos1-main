@@ -1,5 +1,22 @@
 const express = require('express');
+const session = require('express-session')
+const passport = require('passport')
+
+require('./config/passport')(passport)
+
 const app = express();
+
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
+
+app.use(session({
+  secret: 'tu_secreto_aqui',
+  resave: false,
+  saveUninitialized: false
+}))
+
+app.use(passport.initialize())
+app.use(passport.session())
 
 const usuariosRoutes = require('./routes/usuarios');
 const personaRoutes = require('./routes/persona');
